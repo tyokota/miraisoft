@@ -222,7 +222,7 @@ main {
 .app-card-number {
   font-size: 0.75rem;
   color: var(--text-dim);
-  margin-bottom: 1rem;
+  margin-bottom: 0.35rem;
 }
 
 .app-card-number span {
