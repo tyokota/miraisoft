@@ -2,7 +2,7 @@
    mirai software — zine terminal
    ═══════════════════════════════════════════════ */
 
-@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap');
 
 *, *::before, *::after {
   margin: 0;
@@ -14,13 +14,16 @@
   --bg: #0a0a0a;
   --bg-raised: #111;
   --text: #e5e5e5;
-  --text-muted: #777;
+  --text-muted: #999;
   --text-dim: #555;
   --amber: #d4a24e;
+  --amber-glow: rgba(212, 162, 78, 0.6);
   --teal: #5eead4;
+  --teal-glow: rgba(94, 234, 212, 0.6);
   --border: #222;
   --border-hover: #333;
-  --font: 'Fira Code', monospace;
+  --font-mono: 'Fira Code', monospace;
+  --font-sans: 'Plus Jakarta Sans', -apple-system, sans-serif;
   --max-w: 860px;
   --gutter: clamp(1.25rem, 4vw, 3rem);
 }
@@ -31,7 +34,7 @@ html {
 }
 
 body {
-  font-family: var(--font);
+  font-family: var(--font-mono);
   background: var(--bg);
   color: var(--text);
   line-height: 1.7;
@@ -39,6 +42,13 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+}
+
+/* sans-serif for readable body text */
+.desc, .app-card-desc, .app-hero-desc, .feature-card-desc,
+.privacy-summary p, .man-section p, .man-section li {
+  font-family: var(--font-sans);
+  letter-spacing: -0.01em;
 }
 
 a {
@@ -225,20 +235,32 @@ main {
   color: var(--text-dim);
   white-space: pre;
   padding-top: 0.5rem;
+  transition: color 0.3s, text-shadow 0.3s;
 }
 
 .app-card[data-accent="amber"] .app-card-ascii {
-  color: rgba(212, 162, 78, 0.4);
+  color: rgba(212, 162, 78, 0.3);
 }
 
 .app-card[data-accent="teal"] .app-card-ascii {
-  color: rgba(94, 234, 212, 0.4);
+  color: rgba(94, 234, 212, 0.3);
+}
+
+.app-card[data-accent="amber"]:hover .app-card-ascii {
+  color: rgba(212, 162, 78, 0.7);
+  text-shadow: 0 0 8px rgba(212, 162, 78, 0.3);
+}
+
+.app-card[data-accent="teal"]:hover .app-card-ascii {
+  color: rgba(94, 234, 212, 0.7);
+  text-shadow: 0 0 8px rgba(94, 234, 212, 0.3);
 }
 
 .app-card-title {
-  font-size: 1.1rem;
-  font-weight: 600;
+  font-size: 1.5rem;
+  font-weight: 700;
   margin-bottom: 0.5rem;
+  transition: text-shadow 0.3s;
 }
 
 .app-card[data-accent="amber"] .app-card-title {
@@ -247,6 +269,14 @@ main {
 
 .app-card[data-accent="teal"] .app-card-title {
   color: var(--teal);
+}
+
+.app-card[data-accent="amber"]:hover .app-card-title {
+  text-shadow: 0 0 20px var(--amber-glow);
+}
+
+.app-card[data-accent="teal"]:hover .app-card-title {
+  text-shadow: 0 0 20px var(--teal-glow);
 }
 
 .app-card-desc {
@@ -268,49 +298,80 @@ main {
   color: var(--text-dim);
   border: 1px solid var(--border);
   padding: 0.15rem 0.5rem;
+  transition: color 0.3s, border-color 0.3s;
 }
 
 .app-card-link {
   font-size: 0.8rem;
   color: var(--text-muted);
-  transition: color 0.2s;
+  transition: color 0.2s, text-shadow 0.2s;
 }
 
-.app-card[data-accent="amber"] .app-card-link:hover {
+.app-card[data-accent="amber"]:hover .app-card-link {
   color: var(--amber);
+  text-shadow: 0 0 12px var(--amber-glow);
 }
 
-.app-card[data-accent="teal"] .app-card-link:hover {
+.app-card[data-accent="teal"]:hover .app-card-link {
   color: var(--teal);
+  text-shadow: 0 0 12px var(--teal-glow);
 }
 
-/* ── whoami ───────────────────────────────────── */
-
-.whoami {
-  padding: 4rem 0;
+/* tags shift to accent on hover too */
+.app-card[data-accent="amber"]:hover .tag {
+  border-color: rgba(212, 162, 78, 0.25);
+  color: rgba(212, 162, 78, 0.6);
 }
 
-.whoami-label {
-  font-size: 0.75rem;
+.app-card[data-accent="teal"]:hover .tag {
+  border-color: rgba(94, 234, 212, 0.25);
+  color: rgba(94, 234, 212, 0.6);
+}
+
+/* ── tagline (replaces whoami) ────────────────── */
+
+.site-tagline {
+  padding: 3rem 0 4rem;
+  text-align: center;
+  font-size: 0.8rem;
   color: var(--text-dim);
-  margin-bottom: 1.5rem;
+  letter-spacing: 0.05em;
 }
 
-.whoami-prompt {
-  font-size: 0.85rem;
-  color: var(--text-muted);
-  margin-bottom: 0.5rem;
+/* ── app screenshot ──────────────────────────── */
+
+.app-screenshot {
+  margin: 2.5rem 0;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+  background: var(--bg-raised);
 }
 
-.whoami-prompt .cmd {
-  color: var(--text);
+.app-screenshot img {
+  display: block;
+  width: 100%;
+  height: auto;
+  opacity: 0.9;
+  transition: opacity 0.3s;
 }
 
-.whoami-line {
-  font-size: 0.85rem;
-  color: var(--text-muted);
-  padding-left: 1.2rem;
-  line-height: 1.8;
+.app-screenshot:hover img {
+  opacity: 1;
+}
+
+.app-screenshot-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 320px;
+  color: var(--text-dim);
+  font-size: 0.75rem;
+  font-family: var(--font-mono);
+  border: 1px dashed var(--border);
+  border-radius: 8px;
+  margin: 2.5rem 0;
 }
 
 /* ── app page hero ───────────────────────────── */
@@ -346,7 +407,7 @@ main {
 }
 
 .app-hero-desc {
-  font-size: 0.9rem;
+  font-size: 1.05rem;
   color: var(--text-muted);
   max-width: 36ch;
   margin-bottom: 2rem;
@@ -355,12 +416,12 @@ main {
 
 .app-store-btn {
   display: inline-block;
-  font-family: var(--font);
+  font-family: var(--font-mono);
   font-size: 0.8rem;
   color: var(--text);
   border: 1px solid var(--text-muted);
   padding: 0.6rem 1.5rem;
-  transition: all 0.2s;
+  transition: all 0.25s;
   background: none;
   cursor: pointer;
 }
@@ -368,6 +429,21 @@ main {
 .app-store-btn:hover {
   background: var(--text);
   color: var(--bg);
+  box-shadow: 0 0 20px rgba(229, 229, 229, 0.15);
+}
+
+.app-hero[data-accent="amber"] .app-store-btn:hover {
+  background: var(--amber);
+  border-color: var(--amber);
+  color: var(--bg);
+  box-shadow: 0 0 25px var(--amber-glow);
+}
+
+.app-hero[data-accent="teal"] .app-store-btn:hover {
+  background: var(--teal);
+  border-color: var(--teal);
+  color: var(--bg);
+  box-shadow: 0 0 25px var(--teal-glow);
 }
 
 /* ── features grid ───────────────────────────── */
@@ -391,11 +467,21 @@ main {
 .feature-card {
   border: 1px solid var(--border);
   padding: 1.5rem;
-  transition: border-color 0.3s;
+  transition: border-color 0.3s, box-shadow 0.3s;
 }
 
 .feature-card:hover {
   border-color: var(--border-hover);
+}
+
+.feature-card[data-accent="amber"]:hover {
+  border-color: rgba(212, 162, 78, 0.25);
+  box-shadow: 0 0 20px rgba(212, 162, 78, 0.04);
+}
+
+.feature-card[data-accent="teal"]:hover {
+  border-color: rgba(94, 234, 212, 0.25);
+  box-shadow: 0 0 20px rgba(94, 234, 212, 0.04);
 }
 
 .feature-card-header {
@@ -411,9 +497,18 @@ main {
 }
 
 .feature-card-title {
-  font-size: 0.9rem;
+  font-size: 1rem;
   font-weight: 600;
   margin-bottom: 0.5rem;
+  transition: text-shadow 0.3s;
+}
+
+.feature-card[data-accent="amber"]:hover .feature-card-title {
+  text-shadow: 0 0 14px var(--amber-glow);
+}
+
+.feature-card[data-accent="teal"]:hover .feature-card-title {
+  text-shadow: 0 0 14px var(--teal-glow);
 }
 
 .feature-card[data-accent="amber"] .feature-card-title {
@@ -444,12 +539,14 @@ main {
 
 .privacy-summary a {
   font-size: 0.8rem;
+  font-family: var(--font-mono);
   color: var(--text-muted);
-  transition: color 0.2s;
+  transition: color 0.2s, text-shadow 0.2s;
 }
 
 .privacy-summary a:hover {
   color: var(--text);
+  text-shadow: 0 0 12px rgba(229, 229, 229, 0.4);
 }
 
 /* ── man page (privacy) ──────────────────────── */
