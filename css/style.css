@@ -133,6 +133,7 @@ main {
 .ascii-logo {
   font-size: clamp(0.85rem, 2.8vw, 1.3rem);
   line-height: 1.3;
+  letter-spacing: 0.15em;
   color: var(--text);
   margin-bottom: 2rem;
   white-space: pre;
