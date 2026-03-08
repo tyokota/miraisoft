@@ -73,9 +73,9 @@ Home Page Mini Icons (used in app cards)
 
 SpotMeter (viewfinder):
 ┌───────┐
-│  ◎    │
+│   ◎   │
+│  / \  │
 │ /   \ │
-│/     \│
 └───────┘
 
 StockRoom (film strip):
