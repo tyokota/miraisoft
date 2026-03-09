@@ -17,11 +17,20 @@ SpotMeter (viewfinder):
 StockRoom (film strip):
 ┌────────────┐
 │            │
-│   ░▒▓██   │
-│   █▓▒░░   │
-│   ░▒▓██   │
+│   ░▒▓██    │
+│   █▓▒░░    │
+│   ░▒▓██    │
 │            │
 └────────────┘
+
+PhotoBook (book spread):
+┌──────┬──────┐
+│      │      │
+│  ▓█  │   ░  │
+│      │      │
+│   ░  │  ▓█  │
+│      │      │
+└──────┴──────┘
 
 
 Stacked Wordmarks (near square, for larger icon usage)
@@ -43,6 +52,14 @@ StockRoom (STOCK / ROOM):
 ╠╦╝│ ││ ││││
 ╩╚═└─┘└─┘┴ ┴
 
+PhotoBook (PHOTO / BOOK):
+╔═╗┬ ┬┌─┐┌┬┐┌─┐
+╠═╝├─┤│ │ │ │ │
+╩  ┴ ┴└─┘ ┴ └─┘
+╔╗ ┌─┐┌─┐┬┌─
+╠╩╗│ ││ │├┴┐
+╚═╝└─┘└─┘┴ ┴
+
 MIRAI:
 ╔╦╗╦╦═╗╔═╗╦
 ║║║║╠╦╝╠═╣║
@@ -62,6 +79,11 @@ StockRoom:
 ╚═╗ │ │ ││  ├┴┐╠╦╝│ ││ ││││
 ╚═╝ ┴ └─┘└─┘┴ ┴╩╚═└─┘└─┘┴ ┴
 
+PhotoBook:
+╔═╗┬ ┬┌─┐┌┬┐┌─┐╔╗ ┌─┐┌─┐┬┌─
+╠═╝├─┤│ │ │ │ │╠╩╗│ ││ │├┴┐
+╩  ┴ ┴└─┘ ┴ └─┘╚═╝└─┘└─┘┴ ┴
+
 MIRAI:
 ╔╦╗╦╦═╗╔═╗╦
 ║║║║╠╦╝╠═╣║
@@ -73,9 +95,9 @@ Home Page Mini Icons (used in app cards)
 
 SpotMeter (viewfinder):
 ┌───────┐
-│   ◎   │
-│  / \  │
+│  ◎    │
 │ /   \ │
+│/     \│
 └───────┘
 
 StockRoom (film strip):
@@ -85,9 +107,17 @@ StockRoom (film strip):
 │ ░▒▓█  │
 └───────┘
 
+PhotoBook (book spread):
+┌───────┐
+│ ┌─┬─┐ │
+│ │▓│░│ │
+│ └─┴─┘ │
+└───────┘
+
 
 Color Reference
 ───────────────
 SpotMeter accent:  #d4a24e (amber)
 StockRoom accent:  #5eead4 (teal)
+PhotoBook accent:  #f5e0bd (cream gold)
 Background:        #0a0a0a
