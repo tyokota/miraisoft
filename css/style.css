@@ -339,42 +339,6 @@ main {
   letter-spacing: 0.05em;
 }
 
-/* ── app screenshot ──────────────────────────── */
-
-.app-screenshot {
-  margin: 2.5rem 0;
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  overflow: hidden;
-  position: relative;
-  background: var(--bg-raised);
-}
-
-.app-screenshot img {
-  display: block;
-  width: 100%;
-  height: auto;
-  opacity: 0.9;
-  transition: opacity 0.3s;
-}
-
-.app-screenshot:hover img {
-  opacity: 1;
-}
-
-.app-screenshot-placeholder {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 320px;
-  color: var(--text-dim);
-  font-size: 0.75rem;
-  font-family: var(--font-mono);
-  border: 1px dashed var(--border);
-  border-radius: 8px;
-  margin: 2.5rem 0;
-}
-
 /* ── app page hero ───────────────────────────── */
 
 .app-hero {
